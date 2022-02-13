@@ -1,7 +1,6 @@
 package data;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Individu {
 	private String nom;
@@ -16,21 +15,20 @@ public class Individu {
 	private String humeur;
 	private ArrayList<String> historiques;
 
-	public void generateAge() {
-		int r= new Random().nextInt(100)+1;
-		setAge(r);
-	}
-
 	public String getNom() {
 		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public String getPrenom() {
 		return prenom;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 	public int getAge() {
