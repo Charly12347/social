@@ -6,4 +6,6 @@ import data.Individu;
 
 public class EvolutionElementManager {
 	private ArrayList<Individu> individu;
+	
+	
 }
