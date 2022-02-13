@@ -16,14 +16,17 @@ public class Individu {
 	private String humeur;
 	private ArrayList<String> historiques;
 
-	public int generateAge() {
+	public void generateAge() {
 		int r= new Random().nextInt(100)+1;
 		setAge(r);
-		return r;
 	}
 
 	public String getNom() {
 		return nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
 	}
 
 	public void setNom(String nom) {
