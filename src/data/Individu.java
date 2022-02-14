@@ -8,9 +8,9 @@ public class Individu {
 	private int age;
 	private Job job;
 	private Personnality personnalites;
-	private ArrayList<Relation> relationsPro;
-	private ArrayList<Relation> relationsFamille;
-	private ArrayList<Relation> relationsAmi;
+	private ArrayList<Individu> relationsPro;
+	private ArrayList<Individu> relationsFamille;
+	private ArrayList<Individu> relationsAmi;
 	private ArrayList<String> interets;
 	private String humeur;
 	private ArrayList<String> historiques;
@@ -55,27 +55,27 @@ public class Individu {
 		this.personnalites = personnalites;
 	}
 
-	public ArrayList<Relation> getRelationsPro() {
+	public ArrayList<Individu> getRelationsPro() {
 		return relationsPro;
 	}
 
-	public void setRelationsPro(ArrayList<Relation> relationsPro) {
+	public void setRelationsPro(ArrayList<Individu> relationsPro) {
 		this.relationsPro = relationsPro;
 	}
 
-	public ArrayList<Relation> getRelationsFamille() {
+	public ArrayList<Individu> getRelationsFamille() {
 		return relationsFamille;
 	}
 
-	public void setRelationsFamille(ArrayList<Relation> relationsFamille) {
+	public void setRelationsFamille(ArrayList<Individu> relationsFamille) {
 		this.relationsFamille = relationsFamille;
 	}
 
-	public ArrayList<Relation> getRelationsAmi() {
+	public ArrayList<Individu> getRelationsAmi() {
 		return relationsAmi;
 	}
 
-	public void setRelationsAmi(ArrayList<Relation> relationsAmi) {
+	public void setRelationsAmi(ArrayList<Individu> relationsAmi) {
 		this.relationsAmi = relationsAmi;
 	}
 
