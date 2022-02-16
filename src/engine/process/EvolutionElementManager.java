@@ -1,9 +1,10 @@
 package engine.process;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import data.Individu;
 
@@ -24,6 +25,11 @@ public class EvolutionElementManager {
 	}
 
 	public void generateNom(Individu individu, BufferedReader csvfile) {
+		List<String> list = new ArrayList<String>();
+		Random randomizer = new Random();
+		String random = list.get(randomizer.nextInt(list.size()));
+		System.out.println(random);
+
 		String line = "";
 		try {
 			while ((line = csvfile.readLine()) != null) {
