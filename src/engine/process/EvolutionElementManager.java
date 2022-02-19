@@ -10,7 +10,6 @@ import data.Individu;
 
 /**
  * class for treatments of social simulation
- * 
  * @author lin
  *
  */
@@ -34,7 +33,7 @@ public class EvolutionElementManager {
 	 * 
 	 * @param individu
 	 * @param csvfile
-	 * @return
+	 * @return 
 	 * @throws IOException
 	 */
 	public static String generateNom(File csvfile) throws IOException {
@@ -51,18 +50,15 @@ public class EvolutionElementManager {
 					noms.add(elm[0]);
 				}
 			}
-
-			int nombre = EvolutionElementManager.getRandomNumber(0, noms.size() - 1);
-			nom = noms.get(nombre);
 		} catch (FileNotFoundException e) {
 			System.err.println("Fichier non trouvé");
 		}
-		return nom;
+		int nombre = EvolutionElementManager.getRandomNumber(0, noms.size() - 1);
+		return noms.get(nombre);
 	}
 
 	public static String generatePrenom(File csvfile, String genre) throws IOException {
 		String line = "";
-		String result = "";
 		ArrayList<String> prenoms = new ArrayList<String>();
 
 		if (genre.equals("Feminine")) {
@@ -81,7 +77,6 @@ public class EvolutionElementManager {
 		} else {
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(csvfile));
-
 				while ((line = br.readLine()) != null) {
 					String[] elm = line.split(";");
 					if (!elm[1].equals("Boy name")) {
