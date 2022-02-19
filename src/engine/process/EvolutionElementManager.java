@@ -1,10 +1,5 @@
 package engine.process;
 
-/**
- * 
- * @author charlylin
- *
- */
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,6 +9,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import data.Individu;
 
+/**
+ * class for treatments of social simulation
+ * @author lin
+ *
+ */
 public class EvolutionElementManager {
 	private ArrayList<Individu> individus = new ArrayList<Individu>();
 
@@ -43,7 +43,7 @@ public class EvolutionElementManager {
 			
 			while ((line = br.readLine()) != null) {
 				String[] elm = line.split(";");
-				if (!elm[1].equals("Boy name")) {
+				if (!elm[1].equals("Last Name")) {
 					prenoms.add(elm[0]);
 				}
 			}
@@ -55,22 +55,22 @@ public class EvolutionElementManager {
 		}
 	}
 	
+	
 	public static void generatePrenom(File csvfile, String genre) throws IOException {
 		String line = "";
 		ArrayList<String>prenoms = new ArrayList<String>();
 		int nombre = EvolutionElementManager.getRandomNumber(0, prenoms.size());
 		
-		if(genre.equals("Fille")||genre.equals("Femme")) {
+		if(genre.equals("Feminine")) {
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(csvfile));
-				
+
 				while ((line = br.readLine()) != null) {
 					String[] elm = line.split(";");
 					if (!elm[1].equals("Girl name")) {
 						prenoms.add(elm[2]);
 					}
 				}
-				
 				System.out.println(prenoms.get(nombre));
 			} catch (FileNotFoundException e) {
 				System.err.println("Fichier non trouvé");
