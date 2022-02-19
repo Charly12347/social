@@ -1,19 +1,24 @@
 package engine.process;
 
+/**
+ * 
+ * @author charlylin
+ *
+ */
+
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import data.Individu;
 
 public class EvolutionElementManager {
 	private ArrayList<Individu> individus = new ArrayList<Individu>();
 
-	public void generateAge(Individu individu) {
-		int age = (int) (Math.random() * (100 + 1 - 0)) + 0;
-		individu.setAge(age);
+	public static int getRandomNumber(int min, int max) {
+		return (int) (Math.random() * (max + 1 - min)) + min;
 	}
 
 	public ArrayList<Individu> getIndividus() {
@@ -23,22 +28,70 @@ public class EvolutionElementManager {
 	public void add(Individu individu) {
 		individus.add(individu);
 	}
-
-	public void generateNom(Individu individu, BufferedReader csvfile) {
-		List<String> list = new ArrayList<String>();
-		Random randomizer = new Random();
-		String random = list.get(randomizer.nextInt(list.size()));
-		System.out.println(random);
-
+	/**
+	 * genere un nom de famille
+	 * @param individu
+	 * @param csvfile
+	 * @throws IOException 
+	 */
+	public static void generateNom(File csvfile) throws IOException {
 		String line = "";
+		ArrayList<String>prenoms = new ArrayList<String>();
+		
 		try {
-			while ((line = csvfile.readLine()) != null) {
-				String[] values = line.split(";");
-				System.out.println(values[0]);
+			BufferedReader br = new BufferedReader(new FileReader(csvfile));
+			
+			while ((line = br.readLine()) != null) {
+				String[] elm = line.split(";");
+				if (!elm[1].equals("Boy name")) {
+					prenoms.add(elm[0]);
+				}
 			}
-		} catch (IOException e) {
-			System.err.println("Fichier non détecté.");
+			
+			int nombre = EvolutionElementManager.getRandomNumber(0, prenoms.size());
+			System.out.println(prenoms.get(nombre));
+		} catch (FileNotFoundException e) {
+			System.err.println("Fichier non trouvé");
 		}
 	}
+	
+	public static void generatePrenom(File csvfile, String genre) throws IOException {
+		String line = "";
+		ArrayList<String>prenoms = new ArrayList<String>();
+		int nombre = EvolutionElementManager.getRandomNumber(0, prenoms.size());
+		
+		if(genre.equals("Fille")||genre.equals("Femme")) {
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(csvfile));
+				
+				while ((line = br.readLine()) != null) {
+					String[] elm = line.split(";");
+					if (!elm[1].equals("Girl name")) {
+						prenoms.add(elm[2]);
+					}
+				}
+				
+				System.out.println(prenoms.get(nombre));
+			} catch (FileNotFoundException e) {
+				System.err.println("Fichier non trouvé");
+			}
+		}else {
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(csvfile));
+				
+				while ((line = br.readLine()) != null) {
+					String[] elm = line.split(";");
+					if (!elm[1].equals("Boy name")) {
+						prenoms.add(elm[1]);
+					}
+				}
+				System.out.println(prenoms.get(nombre));
+			} catch (FileNotFoundException e) {
+				System.err.println("Fichier non trouvé");
+			}
+		}
+	}
+	
+	
 
 }
