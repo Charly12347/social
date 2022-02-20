@@ -23,7 +23,7 @@ public class EvolutionElementManager {
 	public ArrayList<Individu> getIndividus() {
 		return individus;
 	}
-
+ 
 	public void add(Individu individu) {
 		individus.add(individu);
 	}
