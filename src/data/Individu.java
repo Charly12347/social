@@ -15,6 +15,12 @@ public class Individu {
 	private String humeur;
 	private ArrayList<String> historiques;
 
+	public Individu(String nom, String prenom, int age) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.age = age;
+	}
+
 	public String getNom() {
 		return nom;
 	}
