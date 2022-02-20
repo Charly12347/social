@@ -38,14 +38,13 @@ public class EvolutionElementManager {
 	 */
 	public static String generateNom(File csvfile) throws IOException {
 		String line = "";
-		String nom = "";
 		ArrayList<String> noms = new ArrayList<String>();
 
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(csvfile));
 
 			while ((line = br.readLine()) != null) {
-				String[] elm = line.split(";");
+				String[] elm = line.split(",");
 				if (!elm[0].equals("Last Name")) {
 					noms.add(elm[0]);
 				}
@@ -57,38 +56,32 @@ public class EvolutionElementManager {
 		return noms.get(nombre);
 	}
 
-	public static String generatePrenom(File csvfile, String genre) throws IOException {
+	/**
+	 * genere un prenom
+	 * 
+	 * @param individu
+	 * @param csvfile
+	 * @param genre
+	 * @return 
+	 * @throws IOException
+	 */
+	public static String generatePrenom(File csvfile) throws IOException {
 		String line = "";
 		ArrayList<String> prenoms = new ArrayList<String>();
-
-		if (genre.equals("Feminine")) {
+		
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(csvfile));
 
 				while ((line = br.readLine()) != null) {
-					String[] elm = line.split(";");
-					if (!elm[2].equals("Girl name")) {
-						prenoms.add(elm[2]);
-					}
-				}
-			} catch (FileNotFoundException e) {
-				System.err.println("Fichier non trouvé");
-			}
-		} else {
-			try {
-				BufferedReader br = new BufferedReader(new FileReader(csvfile));
-				while ((line = br.readLine()) != null) {
-					String[] elm = line.split(";");
-					if (!elm[1].equals("Boy name")) {
+					String[] elm = line.split(",");
+					if (!elm[1].equals("Prénom")) {
 						prenoms.add(elm[1]);
 					}
 				}
 			} catch (FileNotFoundException e) {
 				System.err.println("Fichier non trouvé");
 			}
-		}
 		int nombre = EvolutionElementManager.getRandomNumber(0, prenoms.size() - 1);
 		return prenoms.get(nombre);
 	}
-
 }
