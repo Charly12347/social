@@ -19,7 +19,7 @@ public class EvolutionElementManager {
 	public static int getRandomNumber(int min, int max) {
 		return (int) (Math.random() * (max + 1 - min)) + min;
 	}
-
+ 
 	public ArrayList<Individu> getIndividus() {
 		return individus;
 	}
