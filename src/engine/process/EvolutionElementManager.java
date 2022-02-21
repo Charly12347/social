@@ -6,17 +6,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import data.Individu;
 
 /**
  * class for treatments of social simulation
  * @author lin
- *
  */
 public class EvolutionElementManager {
 	private ArrayList<Individu> individus = new ArrayList<Individu>();
-	String file = "./src/fichiers/noms individus social.csv";
-	File f = new File(file);
 
 	public static int getRandomNumber(int min, int max) {
 		return (int) (Math.random() * (max + 1 - min)) + min;
@@ -34,9 +33,20 @@ public class EvolutionElementManager {
 	 * genere un individu
 	 * @throws IOException
 	 */
-	public void generateIndividu() throws IOException {
+	public void generateIndividu(File f) throws IOException {
 		Individu individu = new Individu(generateNom(f), generatePrenom(f), EvolutionElementManager.getRandomNumber(0, 100));
 		add(individu);
+	}
+	
+	/**
+	 * affichage des individus dans le réseau
+	 */
+	public void printIndividus() {
+		Iterator<Individu> ind = individus.iterator();
+		while(ind.hasNext()) {
+			Individu individu = ind.next();
+			System.out.println(individu.toString()+"\n");
+		}
 	}
 	
 	/**
@@ -47,7 +57,7 @@ public class EvolutionElementManager {
 	 * @return 
 	 * @throws IOException
 	 */
-	public String generateNom(File csvfile) throws IOException {
+	public static String generateNom(File csvfile) throws IOException {
 		String line = "";
 		ArrayList<String> noms = new ArrayList<String>();
 
@@ -56,7 +66,7 @@ public class EvolutionElementManager {
 
 			while ((line = br.readLine()) != null) {
 				String[] elm = line.split(",");
-				if (!elm[0].equals("Last Name")) {
+				if (!elm[0].equals("Nom")) {
 					noms.add(elm[0]);
 				}
 			}
@@ -76,7 +86,7 @@ public class EvolutionElementManager {
 	 * @return 
 	 * @throws IOException
 	 */
-	public String generatePrenom(File csvfile) throws IOException {
+	public static String generatePrenom(File csvfile) throws IOException {
 		String line = "";
 		ArrayList<String> prenoms = new ArrayList<String>();
 		
@@ -102,7 +112,7 @@ public class EvolutionElementManager {
 	 * @return
 	 * @throws IOException
 	 */
-	public String generatePersonnality(File csvfile) throws IOException {
+	public static String generatePersonnality(File csvfile) throws IOException {
 		String line = "";
 		ArrayList<String> personnalities = new ArrayList<String>();
 		
@@ -111,8 +121,8 @@ public class EvolutionElementManager {
 
 				while ((line = br.readLine()) != null) {
 					String[] elm = line.split(",");
-					if (!elm[2].equals("Personnalité")) {
-						personnalities.add(elm[2]);
+					if (!elm[1].equals("Personnalité")) {
+						personnalities.add(elm[1]);
 					}
 				}
 			} catch (FileNotFoundException e) {
@@ -122,5 +132,82 @@ public class EvolutionElementManager {
 		return personnalities.get(nombre);
 	}
 
+	/**
+	 * retourne un message comme quoi on l'a trouvé ou pas
+	 * @param individu
+	 * @return
+	 */
+	public String researchIndividuString(Individu individu) {
+		if(individus.contains(individu)){
+			return "trouvé";
+		}
+		return "non trouvé";
+	}
+	
+	/**
+	 * retourne un bool comme quoi on l'a trouvé ou pas
+	 * @param individu
+	 * @return
+	 */
+	public boolean researchIndividuBool(Individu individu) {
+		if(individus.contains(individu)){
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * recherche l'individu par les paramètres 
+	 * @param nom
+	 * @param prenom
+	 * @return
+	 */
+	public String researchIndividuNP(String nom, String prenom) {
+		Iterator<Individu> individu = individus.iterator();
+		while(individu.hasNext()) {
+			Individu ind = individu.next();
+			if(ind.getNom().equals(nom)&&ind.getPrenom().equals(prenom)) {
+				return prenom + " " + nom + " trouvé.";
+			}
+		}
+		return "Individu non trouvé";
+	}
 
+	/**
+	 * retourne le nombre total d'individu dans le réseau
+	 * @return
+	 */
+	public int individuCount() {
+        return individus.size();
+    }
+    
+	/**
+	 *  retourne le nombre total de femmes dans le réseau
+	 * @return
+	 */
+    public int countFemale() {
+        int totalFemale = 0;
+        for (Individu individu : individus) {
+        	if (individu.getGender().equals("female")) {
+        		totalFemale++;
+        	}
+        }
+        return totalFemale;
+    }
+    
+    /**
+     * retourne le nombre total d'hommes dans le réseau
+     * @return
+     */
+    public int countMale() {
+        int totalMale = 0;
+        for (Individu individu : individus) {
+        	if (individu.getGender().equals("male")) {
+        		totalMale++;
+        	}
+        }
+        return totalMale;
+    }
+    
+    
 }

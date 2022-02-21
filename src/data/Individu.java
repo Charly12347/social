@@ -13,6 +13,7 @@ public class Individu {
 	private ArrayList<Individu> relationsAmi;
 	private ArrayList<String> interets;
 	private String humeur;
+	private String gender;
 	private ArrayList<String> historiques;
 
 	public Individu(String nom, String prenom, int age) {
@@ -99,6 +100,14 @@ public class Individu {
 
 	public void setHumeur(String humeur) {
 		this.humeur = humeur;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public ArrayList<String> getHistoriques() {

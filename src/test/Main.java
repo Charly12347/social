@@ -8,10 +8,13 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		String file = "./src/fichiers/noms individus social.csv";
-		
 		File f = new File(file);
-		String nom = EvolutionElementManager.generateNom(f);
-		String prenom = EvolutionElementManager.generatePrenom(f);
-		System.out.println("Last name = " + nom + " ,First Name = " + prenom);
+		
+		for(int i=0; i<100; i++) {
+			String nom = EvolutionElementManager.generateNom(f);
+			String prenom = EvolutionElementManager.generatePrenom(f);
+			//String personnality = EvolutionElementManager.generatePersonnality(f);
+			System.out.println("Last name = " + nom + " ,First Name = " + prenom +" ,Personnality = ");
+		}
 	}
 }
