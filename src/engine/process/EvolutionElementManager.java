@@ -121,8 +121,8 @@ public class EvolutionElementManager {
 
 				while ((line = br.readLine()) != null) {
 					String[] elm = line.split(",");
-					if (!elm[1].equals("Personnalité")) {
-						personnalities.add(elm[1]);
+					if (!elm[0].equals("Personnalité")) {
+						personnalities.add(elm[0]);
 					}
 				}
 			} catch (FileNotFoundException e) {
@@ -142,18 +142,6 @@ public class EvolutionElementManager {
 			return "trouvé";
 		}
 		return "non trouvé";
-	}
-	
-	/**
-	 * retourne un bool comme quoi on l'a trouvé ou pas
-	 * @param individu
-	 * @return
-	 */
-	public boolean researchIndividuBool(Individu individu) {
-		if(individus.contains(individu)){
-			return true;
-		}
-		return false;
 	}
 	
 	/**
