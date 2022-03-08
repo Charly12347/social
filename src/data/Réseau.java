@@ -1,6 +1,9 @@
-package engine.process;
+package data;
+
+import java.util.ArrayList;
 
 public class Réseau {
+	ArrayList<Individu> individus = new ArrayList<>();
 	private int year;
 
 	public int getYear() {
