@@ -7,7 +7,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
+import config.Configuration;
 import data.Individu;
 import engine.map.Bloc;
 
@@ -18,6 +20,7 @@ import engine.map.Bloc;
 public class EvolutionElementManager {
 	
 	private ArrayList<Individu> individus = new ArrayList<Individu>();
+	
 
 	public static int getRandomNumber(int min, int max) {
 		return (int) (Math.random() * (max + 1 - min)) + min;
@@ -32,11 +35,14 @@ public class EvolutionElementManager {
 	}
 	
 	/**
-	 * genere un individu
+	 * genere un individu et sa position
 	 * @throws IOException
 	 */
-	public void generateIndividu(File f, Bloc position) throws IOException {
-		Individu individu = new Individu(generateNom(f), generatePrenom(f), EvolutionElementManager.getRandomNumber(0, 100), position);
+	public void generateIndividu(File f) throws IOException {
+		int genereX = getRandomNumber(Configuration.WINDOW_WIDTH/Configuration.BLOCK_SIZE, Configuration.WINDOW_HEIGHT/Configuration.BLOCK_SIZE);
+		int genereY = getRandomNumber(Configuration.WINDOW_WIDTH/Configuration.BLOCK_SIZE, Configuration.WINDOW_HEIGHT/Configuration.BLOCK_SIZE);
+		Bloc block = new Bloc(genereX,genereY);
+		Individu individu = new Individu(generateNom(f), generatePrenom(f), EvolutionElementManager.getRandomNumber(0, 100), block);
 		add(individu);
 	}
 	
@@ -199,5 +205,24 @@ public class EvolutionElementManager {
         return totalMale;
     }
     
+    /**
+     * retire les individus morts de la liste 
+     */
+    public void removeIndividu() {
+    	List<Individu> individuMorts = new ArrayList<Individu>();
+    	
+    	for(Individu individu : individus) {
+    		String etat = individu.getEtat();
+    		
+    		if(etat.equals("mort")) {
+    			individuMorts.add(individu);
+    		}
+    	}
+    	
+    	for(Individu individu : individuMorts) {
+    		individus.remove(individu);
+    	}
+    	
+    }
     
 }
