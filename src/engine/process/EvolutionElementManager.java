@@ -208,7 +208,7 @@ public class EvolutionElementManager {
     /**
      * retire les individus morts de la liste 
      */
-    public void removeIndividu() {
+    public void removeIndividuDead() {
     	List<Individu> individuMorts = new ArrayList<Individu>();
     	
     	for(Individu individu : individus) {
