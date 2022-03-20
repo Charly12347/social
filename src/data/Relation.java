@@ -11,12 +11,14 @@ public class Relation {
 	public String getRelation() {
 		return lien;
 	}
+	
+	
 
 	/**
 	 * Change the link between 2 person, in parameter the change link
 	 * @param lien
 	 */
-	public void setLien(String lien) {
+	public void setLien(String lien, Individu individu1, Individu individu2) {
 		this.lien = lien;
 	}
 	

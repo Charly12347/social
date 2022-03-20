@@ -6,17 +6,17 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/hamcrest-core-1.3.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/jcommon-1.0.23.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/jfreechart-1.0.19-experimental.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/jfreechart-1.0.19-swt.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/jfreechart-1.0.19.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/jfreesvg-2.0.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/junit-4.11.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/orsoncharts-1.4-eval-nofx.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/orsonpdf-1.6-eval.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/servlet.jar"/>
-	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libsliu/swtgraphics2d.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/jfreechart-1.0.19-experimental.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/jfreechart-1.0.19-swt.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/jfreesvg-2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/orsoncharts-1.4-eval-nofx.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/orsonpdf-1.6-eval.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/servlet.jar"/>
+	<classpathentry kind="lib" path="/Users/charlylin/Downloads/Téléchargement depuis Safari/GLP/libs/swtgraphics2d.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

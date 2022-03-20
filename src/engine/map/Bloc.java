@@ -6,11 +6,11 @@ package engine.map;
  * @author tianxiao.liu@cyu.fr
  *
  */
-public class Block {
+public class Bloc {
 	private int line;
 	private int column;
 
-	public Block(int line, int column) {
+	public Bloc(int line, int column) {
 		this.line = line;
 		this.column = column;
 	}

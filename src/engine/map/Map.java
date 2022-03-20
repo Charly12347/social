@@ -7,7 +7,7 @@ package engine.map;
  *
  */
 public class Map {
-	private Block[][] blocks;
+	private Bloc[][] blocks;
 
 	private int lineCount;
 	private int columnCount;
@@ -16,16 +16,16 @@ public class Map {
 		this.lineCount = lineCount;
 		this.columnCount = columnCount;
 
-		blocks = new Block[lineCount][columnCount];
+		blocks = new Bloc[lineCount][columnCount];
 
 		for (int lineIndex = 0; lineIndex < lineCount; lineIndex++) {
 			for (int columnIndex = 0; columnIndex < columnCount; columnIndex++) {
-				blocks[lineIndex][columnIndex] = new Block(lineIndex, columnIndex);
+				blocks[lineIndex][columnIndex] = new Bloc(lineIndex, columnIndex);
 			}
 		}
 	}
 
-	public Block[][] getBlocks() {
+	public Bloc[][] getBlocs() {
 		return blocks;
 	}
 
@@ -37,32 +37,7 @@ public class Map {
 		return columnCount;
 	}
 
-	public Block getBlock(int line, int column) {
+	public Bloc getBloc(int line, int column) {
 		return blocks[line][column];
 	}
-
-	public boolean isOnTop(Block block) {
-		int line = block.getLine();
-		return line == 0;
-	}
-
-	public boolean isOnBottom(Block block) {
-		int line = block.getLine();
-		return line == lineCount - 1;
-	}
-
-	public boolean isOnLeftBorder(Block block) {
-		int column = block.getColumn();
-		return column == 0;
-	}
-
-	public boolean isOnRightBorder(Block block) {
-		int column = block.getColumn();
-		return column == columnCount - 1;
-	}
-
-	public boolean isOnBorder(Block block) {
-		return isOnTop(block) || isOnBottom(block) || isOnLeftBorder(block) || isOnRightBorder(block);
-	}
-
 }

@@ -1,25 +1,32 @@
 package data;
 
 import java.util.ArrayList;
+import engine.stable.*;
+import engine.map.Bloc;
 
-public class Individu {
-	private String nom;
-	private String prenom;
-	private int age;
-	private Job job;
-	private Personnality personnalites;
+public class Individu extends Element{
+	private String nom; //
+	private String prenom; //
+	private int age; //
+	private String job; //
+	private Personnality personnalites; //
 	private ArrayList<Individu> relationsPro;
 	private ArrayList<Individu> relationsFamille;
 	private ArrayList<Individu> relationsAmi;
-	private ArrayList<String> interets;
-	private String humeur;
-	private String gender;
-	private ArrayList<String> historiques;
+	private ArrayList<String> interets; //
+	private String humeur; //
+	private String gender;  //
+	private String etat; //
+	private ArrayList<String> historiques; //
+	private Bloc position;
 
-	public Individu(String nom, String prenom, int age) {
+	public Individu(String nom, String prenom, int age, Bloc position) {
+		super(position);
 		this.nom = nom;
 		this.prenom = prenom;
 		this.age = age;
+		this.etat="vivant";
+		this.position=position;
 	}
 
 	public String getNom() {
@@ -46,11 +53,11 @@ public class Individu {
 		this.age = age;
 	}
 
-	public Job getJob() {
+	public String getJob() {
 		return job;
 	}
 
-	public void setJob(Job job) {
+	public void setJob(String job) {
 		this.job = job;
 	}
 
@@ -108,6 +115,14 @@ public class Individu {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getEtat() {
+		return etat;
+	}
+
+	public void setEtat(String etat) {
+		this.etat = etat;
 	}
 
 	public ArrayList<String> getHistoriques() {

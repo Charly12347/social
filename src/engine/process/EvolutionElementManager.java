@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import data.Individu;
+import engine.map.Bloc;
 
 /**
  * class for treatments of social simulation
  * @author lin
  */
 public class EvolutionElementManager {
+	
 	private ArrayList<Individu> individus = new ArrayList<Individu>();
 
 	public static int getRandomNumber(int min, int max) {
@@ -33,8 +35,8 @@ public class EvolutionElementManager {
 	 * genere un individu
 	 * @throws IOException
 	 */
-	public void generateIndividu(File f) throws IOException {
-		Individu individu = new Individu(generateNom(f), generatePrenom(f), EvolutionElementManager.getRandomNumber(0, 100));
+	public void generateIndividu(File f, Bloc position) throws IOException {
+		Individu individu = new Individu(generateNom(f), generatePrenom(f), EvolutionElementManager.getRandomNumber(0, 100), position);
 		add(individu);
 	}
 	
