@@ -44,6 +44,6 @@ public class PaintStrategy {
 		int x = position.getColumn();
 		
 		graphics.setColor(Color.RED);
-		graphics.drawImage(SimulationUtility.readImage("src/images/personnes.png"), x, y, 20, 40, null);
+		graphics.drawImage(SimulationUtility.readImage("src/fichiers/silhouette.png"), x, y, 20, 40, null);
 	}
 }
